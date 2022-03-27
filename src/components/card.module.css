@@ -1,0 +1,30 @@
+.cardconteiner {
+    border: 1px solid rgb(170, 163, 163);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn{
+    background-color: #40AADF;
+    border: none;
+
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.nameTemp {
+   display: flex;
+   justify-content: center;
+   justify-content: space-evenly
+}
+
+.details {
+    display: flex;
+}
+
+.test {
+    display: flex;
+    justify-content: right;
+}
