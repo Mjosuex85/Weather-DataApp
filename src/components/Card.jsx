@@ -30,7 +30,7 @@ export default function Card(props) {
 //  temp_max
 //  wind
 //  country
-//  country2
+//  country2sgit s
 //  img
 
 
