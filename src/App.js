@@ -2,6 +2,9 @@ import { useState } from 'react';
 import './App.css';
 import Cards from './components/Cards';
 import Nav from './components/Nav'
+import City from './components/City';
+import About from './components/About';
+import {HashRouter as Route, Routes } from 'react-router-dom'
 
 /* http://api.openweathermap.org/data/2.5/weather?q=london&appid=8e84108b95ef7a2c77bc1bd073ccfe77&units=metric */
 
@@ -20,7 +23,7 @@ function App() {
         const city = {
           id: source.id,
           name: source.name,
-          temp: source.main.temp,
+          temp: Math.round(source.main.temp),
           min: source.main.temp_min,
           max: source.main.temp_max,
           img: source.weather[0].icon,
@@ -34,14 +37,23 @@ function App() {
         alert("We cannot find your city, try another one");
       }
     });
+    console.log(cities)
     
+  }
+
+  function onClose(id) {
+    setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
   
   return (
+    <Route>
     <div className='App'>
       <Nav onSearch={onSearch}/>
-      <Cards cities={cities}/>
+      <Cards cities={cities} onClose={onClose}/>
+     
+     
     </div>
+    </Route>
   );
 
 }

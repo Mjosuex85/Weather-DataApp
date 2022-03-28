@@ -3,7 +3,7 @@ import s from './SearchBar.module.css'
 
 export default function SearchBar({onSearch}) {
 
-    const [city, setCity] = useState()
+    const [city, setCity] = useState("")
     
     const handleChange = (e) => { 
       setCity(e.target.value)
@@ -18,3 +18,4 @@ export default function SearchBar({onSearch}) {
     )
     
 }
+
