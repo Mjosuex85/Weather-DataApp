@@ -4,7 +4,7 @@ import Cards from './components/Cards';
 import Nav from './components/Nav'
 import City from './components/City';
 import About from './components/About';
-import {HashRouter as Route, Routes } from 'react-router-dom'
+import {BrowserRouter as Route, Router } from 'react-router-dom'
 
 /* http://api.openweathermap.org/data/2.5/weather?q=london&appid=8e84108b95ef7a2c77bc1bd073ccfe77&units=metric */
 
@@ -50,8 +50,6 @@ function App() {
     <div className='App'>
       <Nav onSearch={onSearch}/>
       <Cards cities={cities} onClose={onClose}/>
-     
-     
     </div>
     </Route>
   );

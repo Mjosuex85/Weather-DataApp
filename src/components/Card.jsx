@@ -22,7 +22,7 @@ export default function Card(props) {
             </div>
             <img src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="Not Found" />
             <div>
-                <button className={`btn btn-primary btn-sm ${s.btn}`} onClick={() => alert("Pronto Info Acá")} >info</button>
+                <button className={`btn btn-primary btn-sm ${s.btn}`} onClick={() => alert("Soon...")} >info</button>
   
             </div>
         </div>
