@@ -3,7 +3,7 @@ import s from './card.module.css'
 import { Link } from 'react-router-dom'
 
 export default function Card(props) {
-    
+
     return (
         <div className={s.cardconteiner}>
             <div className={s.test}>
@@ -18,16 +18,17 @@ export default function Card(props) {
                 <p>Temp max: {props.temp_max}</p>
                 <p>Wind: {props.wind}</p>
                 <p>Country: {props.country} {props.country2}</p>
-                
             </div>
             <img src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="Not Found" />
             <div>
-                <button className={`btn btn-primary btn-sm ${s.btn}`} onClick={() => alert("Soon...")} >info</button>
-  
+                <Link to={`/ciudad/${props.id}`}> <button className={`btn btn-primary btn-sm ${s.btn}`}/*  onClick={() => alert("Soon...")}  */>info</button></Link>
             </div>
         </div>
-    )
+
+
+)
 }
+
 
 //  onClose
 //  name

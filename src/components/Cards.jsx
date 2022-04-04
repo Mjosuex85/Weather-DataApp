@@ -20,6 +20,7 @@ export default function Cards({ cities, onClose }) {
                         wind={p.wind}
                         onClose={() => onClose(p.id)}
                         key={p.id}
+                        id={p.id}
                     />)}
             </div>
         );

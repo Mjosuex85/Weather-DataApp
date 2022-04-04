@@ -17,10 +17,10 @@ export default function Nav({ onSearch }) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/Home">Home</NavLink>
+            <NavLink className="nav-link" to="/Home"><span>Home</span></NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/About">About</NavLink>
+            <NavLink className="nav-link" to="/About"><span>About</span></NavLink>
           </li>
         </ul>
         <SearchBar onSearch={onSearch} />
