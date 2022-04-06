@@ -1,7 +1,8 @@
 .btn {
     background-color: #000000;
     border: none;
-    color: #85A094
+    color: #85A094;
+    margin-right: 14px;
 }
 
 .btn:hover {

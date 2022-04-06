@@ -11,7 +11,6 @@
     background-color: #000000;
     border: none;
     color: #ffffff;
-
 }
 
 .btn:hover {
@@ -24,7 +23,6 @@
    justify-content: left;
    gap: 2%;
    font-size: 50px;
-   
 }
 
 .details {
@@ -57,7 +55,6 @@
 .prueba {
    padding: 0x;
    margin-top: -4%;
-    
 }
 
 .name {

@@ -5,6 +5,7 @@ import s from './nav.module.css'
 import { NavLink } from "react-router-dom";
 import linkedin from "../linkedin.png"
 import gitHub from "../github-sign.png"
+import translate from "../translate.png"
 
 
 export default function Nav({ onSearch }) {
@@ -24,13 +25,17 @@ export default function Nav({ onSearch }) {
           <li className="nav-item">
             <NavLink className="nav-link" to="/About"><span>About</span></NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/Instructions"><span>Instructions</span></NavLink>
+          </li>
         </ul>
-        <div className={s.networks}>
-          <img className={s.networks} width="35px" src={gitHub} alt="Not Found" />
-          <img width="35px"src={linkedin} alt="Not Found" />
+        <div>
+          <a href="https://github.com/Mjosuex85" rel="noreferrer" target="_blank"><img className={s.networks} width="35px" src={gitHub} alt="Not Found" /></a>
+          <a href="https://www.linkedin.com/in/mario-vidal-8138651a1/" rel="noreferrer" target="_blank"><img className={s.networks} width="35px"src={linkedin} alt="Not Found" /></a>
         </div>
         <SearchBar onSearch={onSearch} />
       </div>
+      <div><img className={s.networks} width="40px" src={translate} alt="Not Found" /></div>
     </nav>
   )
 }
