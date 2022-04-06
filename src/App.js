@@ -4,9 +4,8 @@ import Cards from './components/Cards';
 import Nav from './components/Nav'
 import CityInfo from './components/City';
 import About from './components/About';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Animation from "./components/Animations.jsx"
-import Prueba from './components/Prueba.jsx';
+import { Route, Switch } from 'react-router-dom';
+
 /* http://api.openweathermap.org/data/2.5/weather?q=london&appid=8e84108b95ef7a2c77bc1bd073ccfe77&units=metric */
 
 
@@ -29,7 +28,8 @@ function App() {
             max: source.main.temp_max,  
             img: source.weather[0].icon,
             country: source.sys.country,
-            wind: source.wind.speed
+            wind: source.wind.speed,
+            humidity: source.main.humidity
           };
 
           setCities(oldCities => [...oldCities, city])
@@ -46,10 +46,10 @@ function App() {
   }
 
   return (
-    <Router>
       <div className='App'>
 
-        <Route path='/' render={() => <Nav onSearch={onSearch} />} />  {/* lleva render e invoca () la función porque Nav recibe props */}
+        <Nav onSearch={onSearch}/>  {/* lleva render e invoca () la función porque Nav recibe props */}
+        <Switch>
         <Route path='/about' component={About} />
         <Cards cities={cities} onClose={onClose} />
         <Route path="/ciudad/:parametro2" render={() => <CityInfo/>}/>
@@ -57,11 +57,10 @@ function App() {
         {/* <Route path="/home" component={Animation}/> */}
 
         {/* <Route exact path="/:params1/:params2" render={CityComponent} /> */}
+        </Switch>
 
       </div>
    
-
-    </Router>
   );
 
 }

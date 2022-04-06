@@ -1,0 +1,24 @@
+.nav {
+    background-color: #85A094;
+}
+
+.font {
+    color: rgb(0, 0, 0);
+}
+
+.other {
+    display: flex;
+    padding: auto;
+    
+}
+
+.networks {
+    margin-right: 10px; 
+}
+
+.networks:Hover {
+    transform: rotate(20deg);
+}
+
+
+
