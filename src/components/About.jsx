@@ -71,6 +71,11 @@ export default function About() {
 </clipPath>
 </defs>
 </svg>
+      <div className={s.sign}>
+      <h6>APP CREATED BY MARIO VIDAL.</h6>
+      </div>
     </div>
+
+  
   )
 }

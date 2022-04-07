@@ -3,12 +3,12 @@ import Card from './Card'
 import Flag from "react-country-flag"
 import s from './cards.module.css'
 
-export default function Cards({ cities, onClose }) {
+export default function Cards(props) {
 
-    if (cities) 
+    if (props.cities) 
         return (
             <div className={s.cards}>
-                {cities.map(p =>
+                {props.cities.map(p =>
                     <Card
                         name={p.name}
                         temp={p.temp}
@@ -18,7 +18,7 @@ export default function Cards({ cities, onClose }) {
                         country={p.country}
                         country2={<Flag countryCode={p.country} />}
                         wind={p.wind}
-                        onClose={() => onClose(p.id)}
+                        onClose={() => props.onClose(p.id)}
                         key={p.id}
                         id={p.id}
                         humidity={p.humidity}
@@ -28,7 +28,7 @@ export default function Cards({ cities, onClose }) {
     
     else {
         return (
-        <div>sin ciudades </div>
+        <div> sin ciudades </div>
         )
         
     };

@@ -1,10 +1,15 @@
 .about {
     margin-top: 36px;
-   margin-left: 140px;
+    margin-left: 140px;
 }
 
-.id1 {
-    background-color: aqua;
+.sign {
+    position: absolute;
+    left: 420px;
+    top: 340px;
+}
+
+#id1 {
 }
 
 

@@ -16,18 +16,14 @@ export default function Card(props) {
                 <div className={s.celcius}>
                     <p>Humidity: {props.humidity}%</p>
                     <p>Wind: {props.wind} Km/h.</p>
-                    <p>Country: {props.country} </p> {/* //bandera comentada */}
-                <p>Min: {props.temp_min}c°</p>
-                <p>Max: {props.temp_max}c°</p>
+                    <p>Country: {props.country} </p>
+                    <p>Min: {props.temp_min}c°</p>
+                    <p>Max: {props.temp_max}c°</p>
                 </div>
-                
-                    <h2 className={s.name}>{props.name},{props.country.toLocaleLowerCase()} {props.country2}</h2>
-        
-            </div>
-            <div>
+                <h2 className={s.name}>{props.name},{props.country.toLocaleLowerCase()} {props.country2}</h2>
             </div>
             <div className={s.btns}>
-                <Link to={`/ciudad/${props.id}`}> <button className={`btn btn-primary btn-sm ${s.btn}`}/*  onClick={() => alert("Soon...")}  */>info</button></Link>
+                <Link to={`/ciudad/${props.id}`}> <button className={`btn btn-primary btn-sm ${s.btn}`}>info</button></Link>
                 <button className={`btn btn-primary btn-sm ${s.btn}`} onClick={props.onClose}>Close</button>
             </div>
         </div>

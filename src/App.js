@@ -4,13 +4,11 @@ import Cards from './components/Cards';
 import Nav from './components/Nav'
 import CityInfo from './components/City.jsx';
 import About from './components/About.jsx';
-import Instructions from './components/Instructions.jsx';
 import { Route, Switch } from 'react-router-dom';
+import Instructions from "./components/Instructions.jsx";
 
 
 /* http://api.openweathermap.org/data/2.5/weather?q=london&appid=8e84108b95ef7a2c77bc1bd073ccfe77&units=metric */
-
-
 
 function App() {
 
@@ -21,52 +19,61 @@ function App() {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
       .then(r => r.json())
       .then((source) => {
+
         if (source.main !== undefined) {
           const city = {
             id: source.id,
             name: source.name,
             temp: Math.round(source.main.temp),
             min: source.main.temp_min,
-            max: source.main.temp_max,  
+            max: source.main.temp_max,
             img: source.weather[0].icon,
             country: source.sys.country,
             wind: source.wind.speed,
-            humidity: source.main.humidity
+            humidity: source.main.humidity,
+            lat: source.coord.lat,
+            lon: source.coord.lon
           };
+          
+          const rep = cities.find
 
           setCities(oldCities => [...oldCities, city])
 
         } else {
           alert("We cannot find your city, try another one");
         }
+
       });
-    
+
   }
 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
 
+  
+  function cityDetails(id) {
+    let infoCity = cities.filter((c) => c.id === parseInt(id))
+        if (infoCity.length > 0) {
+          console.log(infoCity)
+            return infoCity[0]
+        }
+        else return null;
+  }
+
   return (
-      <div className='App'>
-
-        <Nav onSearch={onSearch}/>  {/* lleva render e invoca () la función porque Nav recibe props */}
-        <Switch>
+    <div className='App'>
+      <Nav onSearch={onSearch} />
+      <Switch>
+        <Route exact path="/" render={() => <Cards cities={cities} onClose={onClose} />} />
+        <Route path="/Home" render={() => <Cards cities={cities} onClose={onClose} />} />
         <Route path='/about' component={About} />
-        <Cards cities={cities} onClose={onClose} />
-        <Route path="/ciudad/:parametro2" render={() => <CityInfo/>}/>
-        <Route exact path="/Instructions" render={() => <Instructions/>}/>
-
+        <Route path='/Instructions' component={Instructions} />
+        <Route path="/ciudad/:id" render={({match}) => <CityInfo city={cityDetails(match.params.id)} />} />
         {/* <Route path="/home" component={Animation}/> */}
-
-        {/* <Route exact path="/:params1/:params2" render={CityComponent} /> */}
-        </Switch>
-
-      </div>
-   
+      </Switch>
+    </div>
   );
-
 }
-
 
 export default App;  
