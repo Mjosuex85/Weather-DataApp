@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Cards from './components/Cards';
 import Nav from './components/Nav'
@@ -6,6 +6,8 @@ import CityInfo from './components/City.jsx';
 import About from './components/About.jsx';
 import { Route, Switch } from 'react-router-dom';
 import Instructions from "./components/Instructions.jsx";
+import Form from "./components/Form.jsx"
+import Settings from './components/Settings';
 
 
 /* http://api.openweathermap.org/data/2.5/weather?q=london&appid=8e84108b95ef7a2c77bc1bd073ccfe77&units=metric */
@@ -34,13 +36,20 @@ function App() {
             lat: source.coord.lat,
             lon: source.coord.lon
           };
+
+          const rep = cities.find(c => c.id === city.id)
+          if (rep) {
+            alert("The City is alredy Showing, try another one")
+          }
           
-          const rep = cities.find
+          else if (cities.length === 6 ) {
+            alert("Maximun of city")
+          }
 
-          setCities(oldCities => [...oldCities, city])
-
-        } else {
-          alert("We cannot find your city, try another one");
+          else setCities(oldCities => [...oldCities, city])
+        }
+        else {
+          alert(`"${city.toLocaleUpperCase()}" Sorry, We cannot find your city, try another one`);
         }
 
       });
@@ -51,14 +60,12 @@ function App() {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
 
-  
   function cityDetails(id) {
     let infoCity = cities.filter((c) => c.id === parseInt(id))
-        if (infoCity.length > 0) {
-          console.log(infoCity)
-            return infoCity[0]
-        }
-        else return null;
+    if (infoCity.length > 0) {
+      return infoCity[0]
+    }
+    else return null;
   }
 
   return (
@@ -70,6 +77,8 @@ function App() {
         <Route path='/about' component={About} />
         <Route path='/Instructions' component={Instructions} />
         <Route path="/ciudad/:id" render={({match}) => <CityInfo city={cityDetails(match.params.id)} />} />
+        {/* <Route path="/Settings" component={Settings}/> */}
+        <Route path="/Feedback" component={Form}/>
         {/* <Route path="/home" component={Animation}/> */}
       </Switch>
     </div>

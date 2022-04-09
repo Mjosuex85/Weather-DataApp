@@ -5,9 +5,7 @@ import { Link } from "react-router-dom"
 
 export default function City({ city }) {
 
-    const home = () => {
-        return <Link to="/home"></Link>
-    }
+        if (city) 
 
     return (
         <div className="ciudad">
@@ -27,6 +25,10 @@ export default function City({ city }) {
             
         </div>
     )
+
+    else {
+        return <div>Vuelva a la aplicación</div>
+    }
 }
 
 

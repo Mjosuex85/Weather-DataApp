@@ -4,7 +4,7 @@
     box-shadow: 0 5px 10px rgb(121, 120, 120);
     margin: 0px 10px;
     width: 39%;
-
+    margin-top: 30px;
 }
 
 .btn{
@@ -30,20 +30,9 @@
     justify-content: space-evenly;
 }
 
-
-
 .test {
     display: flex;
     justify-content: right;
-}
-
-.celcius {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    line-height: 1px;
-    font-size: small;
-    margin-top: 18px;
 }
 
 .btns {
@@ -52,7 +41,17 @@
     gap: 1%;
 }
 
-.prueba {
+.info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1px;
+    font-size: small;
+    margin-top: 18px;
+}
+
+
+.cloud {
    padding: 0x;
    margin-top: -4%;
 }
@@ -60,4 +59,6 @@
 .name {
     margin-left: auto;
 }
+
+
 
