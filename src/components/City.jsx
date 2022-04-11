@@ -2,6 +2,7 @@ import React from 'react'
 import s from './city.module.css'
 import Animation from "./Animation.jsx"
 import { Link } from "react-router-dom"
+import computer from "../computer.png"
 
 export default function City({ city }) {
 
@@ -27,7 +28,10 @@ export default function City({ city }) {
     )
 
     else {
-        return <div>Vuelva a la aplicación</div>
+        return (
+          
+        <div className={s.error}> <h1>ERROR 404</h1><img width="90px" src={computer} alt="" /> </div>
+        )
     }
 }
 

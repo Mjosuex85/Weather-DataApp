@@ -11,3 +11,7 @@
 #id1 {
     transform: rotate(0.5turn);
 }
+
+.error {
+    margin-top: 15%;
+}

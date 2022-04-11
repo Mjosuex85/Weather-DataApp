@@ -42,7 +42,7 @@ function App() {
             alert("The City is alredy Showing, try another one")
           }
           
-          else if (cities.length === 6 ) {
+          else if (cities.length > 5 ) {
             alert("Maximun of city")
           }
 
@@ -77,7 +77,7 @@ function App() {
         <Route path='/about' component={About} />
         <Route path='/Instructions' component={Instructions} />
         <Route path="/ciudad/:id" render={({match}) => <CityInfo city={cityDetails(match.params.id)} />} />
-        {/* <Route path="/Settings" component={Settings}/> */}
+        <Route path="/Settings" component={Settings}/>
         <Route path="/Feedback" component={Form}/>
         {/* <Route path="/home" component={Animation}/> */}
       </Switch>

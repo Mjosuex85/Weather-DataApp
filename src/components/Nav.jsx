@@ -41,7 +41,7 @@ export default function Nav({ onSearch }) {
         <SearchBar onSearch={onSearch} />
       </div>
       <a><img onClick={() => alert("Soon you should translate this site")} className={s.networks} width="40px" src={translate} alt="Not Found" /></a>
-      <NavLink to="/Settings"> <a> <img  className={s.networks} width="40px" src={settings} alt="Not found"/></a> </NavLink>
+      <NavLink to="/Settings"> <div><img  className={s.networks} width="40px" src={settings} alt="Not found"/></div> </NavLink>
     </nav>
   )
 }
