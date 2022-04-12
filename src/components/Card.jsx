@@ -6,27 +6,22 @@ import { useState } from 'react'
 export default function Card(props) {
 
 
-    const [temp, setTemp] = useState({temp: props.temp, status: true})   
+   /*  const [temp, setTemp] = useState(props.temp)   
 
-        console.log(temp.temp)
+       console.log(temp)
         
 
         function farenheitToCelius() {
-            if(temp.status === true)
            
-            setTemp({...temp} )
-            
-            /* else {
-            setTemp(prevTemp => prevTemp = parseInt(temp * 9/5) + 32) 
-            } */
-        }
+            setTemp(temp = (temp * 9/5) + 32)   
+        } */
 
     return (
         <div className={s.cardconteiner}>
             <div className={s.nameTemp}>
                 <div className={s.details}>
                     <img className={s.cloud } width="100px" height="100px" src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="Not Found" />
-                    <p>{temp.temp}c°</p>
+                    <p>{props.temp}c°</p>
                 </div>
                 
                 <div className={s.info}>

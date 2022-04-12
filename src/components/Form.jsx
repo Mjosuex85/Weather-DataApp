@@ -21,7 +21,6 @@ export default function Form() {
     <div className={s.conteiner}>
             
             <form className={s.info} onSubmit={onSubmit}>
-                
                 <label> Name: &nbsp;</label>
                 <input 
                 value=""
