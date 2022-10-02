@@ -8,7 +8,7 @@ export default function Cards(props) {
     if (props.cities) 
         return (
             <div className={s.cards}>
-                {props.cities.map(p =>
+                { props.cities.map(p =>
                     <Card
                         name={p.name}
                         temp={p.temp}
@@ -22,7 +22,8 @@ export default function Cards(props) {
                         key={p.id}
                         id={p.id}
                         humidity={p.humidity}
-                    />)}
+                    />)
+                }
             </div>
         );
     

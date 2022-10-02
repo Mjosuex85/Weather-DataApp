@@ -8,7 +8,6 @@ export default function SearchBar({onSearch}) {
     const cityRef = useRef() 
 
     const handleChange = (e) => { 
-        console.log(e)
         const refCity = cityRef.current.value
         setCity(prevCity => prevCity = refCity)
         

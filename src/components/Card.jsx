@@ -2,26 +2,33 @@ import React from 'react'
 import s from './card.module.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import moment from 'moment'
 
 export default function Card(props) {
-
-
-   /*  const [temp, setTemp] = useState(props.temp)   
-
-       console.log(temp)
-        
+    const [temp, setTemp] = useState({temp: props.temp, status: true}) 
 
         function farenheitToCelius() {
-           
-            setTemp(temp = (temp * 9/5) + 32)   
-        } */
+            if (temp.status)
+            setTemp({
+                temp: (temp.temp * 9/5) + 32,
+                status: false
+            })
+
+           else {
+               setTemp({
+                temp: ( temp.temp - 32) * 5/9,
+                status: true
+               })
+           }
+        }
+
 
     return (
         <div className={s.cardconteiner}>
             <div className={s.nameTemp}>
                 <div className={s.details}>
                     <img className={s.cloud } width="100px" height="100px" src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="Not Found" />
-                    <p>{props.temp}c°</p>
+                    <p>{parseInt(temp.temp)}c°</p>
                 </div>
                 
                 <div className={s.info}>
@@ -38,26 +45,14 @@ export default function Card(props) {
             <div className={s.btns}>
                 <Link to={`/ciudad/${props.id}`}> <button className={`btn btn-primary btn-sm ${s.btn}`}>info</button></Link>
                 <button className={`btn btn-primary btn-sm ${s.btn}`} onClick={props.onClose}>Close</button>
+                <h6>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h6>
             </div>
 
-            <button onClick={() => farenheitToCelius}>F|C</button>
+            <button onClick={() => farenheitToCelius()}>F|C</button>
    
         </div>
-
-
     )
 }
-
-
-//  onClose
-//  name
-//  temp
-//  temp_min
-//  temp_max
-//  wind
-//  country
-//  country2sgit s
-//  img
 
 
 

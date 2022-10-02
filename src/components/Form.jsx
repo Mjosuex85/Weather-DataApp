@@ -14,7 +14,7 @@ export default function Form() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log({name, lastName, email, feed})
+        /* console.log({name, lastName, email, feed}) */
     }
 
   return (
