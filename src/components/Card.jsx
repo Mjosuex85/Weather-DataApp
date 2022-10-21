@@ -48,7 +48,7 @@ export default function Card(props) {
                 <h6>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h6>
             </div>
 
-            <button onClick={() => farenheitToCelius()}>F|C</button>
+           {/*  <button onClick={() => farenheitToCelius()}>F|C</button> */}
    
         </div>
     )
