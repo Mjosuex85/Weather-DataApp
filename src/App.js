@@ -16,6 +16,8 @@ function App() {
 
   const [cities, setCities] = useState([])
   const apiKey = "8e84108b95ef7a2c77bc1bd073ccfe77"
+  const [amountCities, setAmountCities] = useState(6)
+
 
   function onSearch(city) {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
@@ -42,7 +44,7 @@ function App() {
             alert("The City is alredy Showing, try another one")
           }
           
-          else if (cities.length > 5 ) {
+          else if (cities.length === amountCities) {
             alert("Maximun of city")
           }
 
@@ -68,6 +70,11 @@ function App() {
     else return null;
   }
 
+  function setCitiesAmount (amount) {
+    setAmountCities(amount)
+    console.log(amount)
+  }
+
   return (
     <div className='App'>
       <Nav onSearch={onSearch} />
@@ -77,7 +84,7 @@ function App() {
         <Route path='/about' component={About} />
         <Route path='/Instructions' component={Instructions} />
         <Route path="/ciudad/:id" render={({match}) => <CityInfo city={cityDetails(match.params.id)} />} />
-        <Route path="/Settings" component={Settings}/>
+        <Route path="/Settings" render={() => <Settings setCitiesAmount={setCitiesAmount}/>}/>
         <Route path="/Feedback" component={Form}/>
         {/* <Route path="/home" component={Animation}/> */}
       </Switch>

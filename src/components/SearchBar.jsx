@@ -22,11 +22,11 @@ export default function SearchBar({onSearch}) {
     return (
         <form className={`form-inline my-2 my-lg-0`} onSubmit={onSubmit/*  (e) => e.preventDefault(); onSearch(city); */}>
             <input 
-            className="form-control mr-sm-2" 
-            type="text" 
-            ref={cityRef}
-            onChange={handleChange} 
-            placeholder="Search City..."/>
+                className="form-control mr-sm-2" 
+                type="text" 
+                ref={cityRef}
+                onChange={handleChange} 
+                placeholder="Search City..."/>
             <button className={`btn btn-primary ${s.btn}`} type="submit">Search</button>
         </form>
     )

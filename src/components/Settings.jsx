@@ -1,26 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import s from "./settings.module.css"
 import { NavLink } from 'react-router-dom'
 
 
-export default function Settings(props) {
+export default function Settings({setCitiesAmount}) {
 
-    const [number, setNumber] = useState()
-
+    const [amount, setAmount] = useState()
+    console.log(amount)
+    function settings(e) {
+        e.preventDefault()
+        console.log(amount)
+        setCitiesAmount(amount)
+        alert("Save Changes")
+    }
 
     return (
         <div className={s.conteiner}>
-            <form /* className={s.numOf} */ onSubmit={(e) => e.preventDefault()}>
                 <h6>Set the numbers of cities do you want to Show</h6>
-
                 <select name="color" id="color">
-                    <option value="r">10</option>
-                    <option value="a">8</option>
-                    <option value="v">6</option>
+                    <option onClick={() => setAmount(10)}>10</option>
+                    <option onClick={() => setAmount(8)}>8</option>
+                    <option onClick={() => setAmount(6)}>6</option>
                 </select>
 
-                <NavLink to="/Home"> <input onClick={() => alert("Changes Saved")} className={`btn btn-primary btn-sm ${s.btn}`} type="submit" value="Save Changes" /></NavLink>
-            </form>
+            <button onClick={settings} className={`btn btn-primary btn-sm ${s.btn}`}> Save Changes</button>
         </div>
     )
 }
